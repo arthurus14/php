@@ -15,6 +15,7 @@
     include("php/menu.php");
      ?>
     <h1 id="titre">Bienvenue sur PHP hello</h1>
+    <a href="php/bonjour.php?nom=Mariette&prenom=Jeremy">Dis moi bonjour</a>
     <p>
         <?php echo "nous sommes le : ";  echo date("d/m/y");
         $nom = "Jérémy";
@@ -73,7 +74,22 @@
         ?>
     </p>
 
+<h2>Connexion</h2>
+<form method="POST" action="php/cible.php" enctype="multipart/form-data">
 
+        <p><input type="text" name="id" placeholder="identifiant" required /></p>
+        <p><input type="password" name="pwd" placeholder="mot de passe" required /></p>
+
+        <p><input type="file" name="monFichier" /></p>
+        
+        <div class="checkbox-group required">
+            <p><input type="checkbox" name="choix" value="virement" /><label for="choix">virement</label></p>
+            <p><input type="checkbox" name="choix" value="prelevement" /><label for="choix">prélévement</label></p>
+        </div>
+
+        <input type="submit" value="connexion"/>
+
+</form>
 
 
 

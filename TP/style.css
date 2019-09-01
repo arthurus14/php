@@ -1,0 +1,14 @@
+h1 {
+    margin-left: 40%;
+    color: blue;
+}
+
+form {
+    margin-left: 45%;
+}
+
+body {
+    background-image: url("fond.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
