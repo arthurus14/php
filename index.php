@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+    $_SESSION['mdp'] = "variable de session";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,7 +96,43 @@
 </form>
 
 
+<!-- compteur -->
 
+<?php
+    //Ouverture du fichier
+    $compteur = fopen('compteur.txt','r+');
+
+
+    //Ce que l'on va faire
+    $ligne = fgets($fichier);
+    $visite = $ligne +=1;
+    //On remplace le curseur au début du fichier
+    fseek($compteur,0);
+    //On écrit dans le fichier
+    fputs($compteur,$visite);
+
+    //Fermeture du fichier
+    fclose($compteur);
+
+    echo '<p>Cette page a été vue ' . $visite . ' fois !</p>';
+?>
+
+<?php
+    //Connexion BDD
+    echo "bdd";
+    $bdd = new PDO('mysql:host=localhost;dbname=demoPHP','root','root');
+    //Récuprérer les données
+    $req = $bdd->query('SELECT * FROM visiteurs');
+    //Boucle qui parcoure le résultat
+    while($data = $req->fetch()){
+        echo "<p> pseudo : ".$data['pseudo']." mail : ".$data['email']."</p>";
+    }
+
+
+    //Insertion dans la bdd
+    $ins = $bdd->prepare('INSERT INTO visiteurs (pseudo,email) VALUES(?,?)');
+    $ins->execute(array('Lenine','lenine@krmelin.urss'));
+?>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
 </body>
