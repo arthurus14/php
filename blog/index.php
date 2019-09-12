@@ -2,16 +2,32 @@
         <h2>messages :</h2>
 
         <?php
-        //Connexion à la bdd
-        $bdd = new PDO('mysql:host=localhost;dbname=blog','root','root');
-        //Requête à la bdd
-        $req = $bdd -> query('SELECT id,titre,contenu, DATE_FORMAT(date_creation, \'%d/%m/%y à %Hh%imin%ss\') AS date_fr FROM billets ORDER BY id DESC LIMIT 10');
-        //Parcours de la boucle
-        while($data = $req->fetch()){
+        //Appel de la requête SQL
+       // require('model.php');
+        //On attribut la fonciton à la variable $req qui sera utlisée pour le view
+       // $posts = getBillets();
 
-            echo "<p><strong>".$data['titre']."</strong> : ".$data['contenu']." ".$data['date_fr']."</p>";
-            echo '<a href="commentaire.php?id='.$data['id'].' "/>Commentaire</a>';
+
+        //Appel de la page contenant le script d'affichage
+        //require('affichageAccueil.php');
+
+
+require('controller/frontend.php');
+
+if (isset($_GET['id'])) {
+
+    if (isset($_GET['id']) && $_GET['id'] > 0) {
+        $post = getPost($_GET['id']);
+        $comments = getComments($_GET['id']);
+        require('view/frontend/postView.php');
+    }   
+        else {
+            echo 'Erreur : aucun identifiant de billet envoyé, try again';
         }
+}
+else {
+    listPosts();
+}
         ?>
 
     </div>
