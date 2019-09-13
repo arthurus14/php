@@ -14,6 +14,8 @@
 
 require('controller/frontend.php');
 
+
+try{
 if (isset($_GET['id'])) {
 
     if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -22,12 +24,19 @@ if (isset($_GET['id'])) {
         require('view/frontend/postView.php');
     }   
         else {
-            echo 'Erreur : aucun identifiant de billet envoyé, try again';
+                 // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
+                 throw new Exception('Aucun identifiant de billet envoyé');
         }
+
+    if(!empty($_POST['author'])){
+      
+        addComment($_POST['post_id'], $_POST['author'], $_POST['comment']);
+    }
 }
 else {
     listPosts();
 }
-        ?>
 
-    </div>
+}catch(Exception $e){
+    echo 'Erreur : '.$e->getMessage();
+}

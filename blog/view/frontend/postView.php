@@ -1,5 +1,25 @@
 <?php $title = 'Mon blog'; ?>
 
+<h2>Commentaires</h2>
+
+<form action="index.php?id=<?php echo $post['id']; ?> " method="post">
+    <div>
+        <label for="author">Auteur</label><br />
+        <input type="text" id="author" name="author" />
+    </div>
+
+    <div>
+        <input type="hidden"  name="post_id"  value="<?php echo $post['id']; ?>"/>
+    </div>
+    <div>
+        <label for="comment">Commentaire</label><br />
+        <textarea id="comment" name="comment"></textarea>
+    </div>
+    <div>
+        <input type="submit" />
+    </div>
+</form>
+
 <?php
 //Va encapsuler le contenu HTML
 ob_start(); ?>
