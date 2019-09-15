@@ -1,29 +1,36 @@
 <?php
+require_once('model/PostManager.php');
+require_once('model/CommentManager.php');
 
-require('model/frontend.php');
+function post($id)
+{
+    $postManager = new PostManager();
+    $commentManager = new CommentManager();
+
+    $post = $postManager->getPost($id);
+    $comments = $commentManager->getComments($id);
+    
+    require('view/frontend/postView.php');
+    
+}
+
 
 function listPosts()
 {
-    $posts = getBillets();
-
+    $postManager = new PostManager(); // Création d'un objet
+    $posts = $postManager->getBillet(); // Appel d'une fonction de cet objet
+    
     require('view/frontend/affichageAccueil.php');
 }
 
-function post()
-{
-    $post = getPost($_GET['id']);
-    $comments = getComments($_GET['id']);
 
-    require('view/frontend/postView.php');
-}
 
 
 function addComment($postId, $author, $comment)
 {
-    
+    $commentManager = new CommentManager();
 
-
-    $affectedLines = postComment($postId, $author, $comment);
+    $affectedLines = $commentManager->postComment($postId, $author, $comment);
 
     if ($affectedLines === false) {
         // Erreur gérée. Elle sera remontée jusqu'au bloc try du routeur !
