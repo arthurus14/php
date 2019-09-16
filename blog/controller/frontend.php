@@ -40,3 +40,19 @@ function addComment($postId, $author, $comment)
         header('Location: index.php?id=' . $postId);
     }
 }
+
+function update($id){
+    $updateManager = new CommentManager;
+
+    $update = $updateManager->updateComment($id);
+
+        require('view/frontend/updateComment.php');
+
+       
+}
+
+function updateDb($id,$author,$comment){
+    $updateManager1 = new CommentManager;
+    $updateBd = $updateManager1->updateBDD($id,$author,$comment);
+
+}

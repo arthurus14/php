@@ -44,7 +44,8 @@ ob_start(); ?>
         {
         ?>
             <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
-            <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+            <p><?= nl2br(htmlspecialchars($comment['comment'])) ?> </p> 
+          <?php  echo '<a href="index.php?action=update&id='.$comment['id'].' "/>Modifier</a>'; ?>
         <?php
         }
         ?>

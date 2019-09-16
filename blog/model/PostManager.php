@@ -1,5 +1,8 @@
 <?php
-class PostManager{
+
+require_once("model/Manager.php");
+
+class PostManager extends Manager{
 
 public function getBillet(){
 
@@ -26,21 +29,6 @@ public function getPost($postId)
 }
 
 
-
-
-// Nouvelle fonction qui nous permet d'éviter de répéter du code
-private function dbConnect()
-{
-    try
-    {
-        $db = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'root');
-        return $db;
-    }
-    catch(Exception $e)
-    {
-        die('Erreur : '.$e->getMessage());
-    }
-}
 }
 
 ?>
