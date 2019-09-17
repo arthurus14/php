@@ -1,6 +1,9 @@
 <?php
+use Arthurus\Blog\Post\PostManager;
+use Arthurus\Blog\Comment\CommentManager;
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
+
 
 function post($id)
 {

@@ -1,5 +1,7 @@
 <?php
 
+namespace Arthurus\Blog;
+
 class Manager{
 
 
@@ -8,7 +10,7 @@ protected function dbConnect()
 {
     try
     {
-        $db = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'root');
+        $db = new \PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'root');
         return $db;
     }
     catch(Exception $e)

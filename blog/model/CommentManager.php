@@ -1,8 +1,9 @@
 <?php
 
+namespace Arthurus\Blog\Comment;
 require_once("model/Manager.php");
 
-class CommentManager extends Manager{
+class CommentManager extends \Arthurus\Blog\Manager{
 
 
     public function getComments($postId)

@@ -1,8 +1,10 @@
 <?php
-
+namespace Arthurus\Blog\Post;
 require_once("model/Manager.php");
 
-class PostManager extends Manager{
+class PostManager extends \Arthurus\Blog\Manager{
+
+  
 
 public function getBillet(){
 
