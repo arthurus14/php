@@ -1,7 +1,4 @@
-<div>
-       
-        <?php
-    
+<?php    
 require('controller/frontend.php');
 
 try{
@@ -19,7 +16,7 @@ if (isset($_GET['id'])) {
 
     if(!empty($_POST['author'])){
       
-        addComment($_POST['post_id'], $_POST['author'], $_POST['comment']);
+        addComment(htmlspecialchars($_POST['post_id']), htmlspecialchars($_POST['author']), htmlspecialchars($_POST['comment']));
     }
     if($_GET['action'] == 'update' && !empty($_GET['id'])){
         update($_GET['id']);        
@@ -31,13 +28,9 @@ else {
 } 
 
 if($_GET['action'] == 'applyUpdate'){
-    //echo "applyUpdate ".$_POST['id']."  auteur : ".$_POST['authorU']." commentaire ".$_POST['comment'];
     
+    updateDb(htmlspecialchars($_POST['id']),htmlspecialchars($_POST['authorU']),htmlspecialchars($_POST['comment']));
     
-    updateDb($_POST['id'],$_POST['authorU'],$_POST['comment']);
-    
-   
-
 }
 
 }catch(Exception $e){

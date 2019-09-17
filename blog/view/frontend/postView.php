@@ -1,10 +1,8 @@
 <?php $title = 'Mon blog'; ?>
 
-
 <?php
     if($_GET['action'] == "update"){
         ?>
-
 
         <?php
     }else{
@@ -28,8 +26,6 @@
         <input type="submit" />
     </div>
 </form>
-
-
 
 
 <?php

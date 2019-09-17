@@ -1,8 +1,6 @@
 <?php 
 $title = 'Mon blog'; ?>
 
-
-
 <h2>Modifier Commentaires</h2>
 
 <form action="index.php?action=applyUpdate" method="post">
@@ -26,9 +24,6 @@ $title = 'Mon blog'; ?>
     </div>
 </form>
 
-
-
-<?php var_dump($update['post_id']); ?>
         
     </body>
 </html>
