@@ -1,10 +1,19 @@
 <?php $title = 'Mon blog'; ?>
 
-<h2>Commentaires</h2>
+
+<?php
+    if($_GET['action'] == "update"){
+        ?>
+
+
+        <?php
+    }else{
+       ?>
+    <h2>Commentaires</h2>
 
 <form action="index.php?id=<?php echo $post['id']; ?> " method="post">
     <div>
-        <label for="author">Auteur</label><br />
+        <label for="author">Auteur à enregister</label><br />
         <input type="text" id="author" name="author" />
     </div>
 
@@ -19,6 +28,9 @@
         <input type="submit" />
     </div>
 </form>
+
+
+
 
 <?php
 //Va encapsuler le contenu HTML
@@ -56,6 +68,9 @@ $content = ob_get_clean(); ?>
 
 <?php require('view/frontend/template.php'); ?>
 
+<?php
+    }
+?>
         
     </body>
 </html>

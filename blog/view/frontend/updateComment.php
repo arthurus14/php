@@ -1,4 +1,7 @@
-<?php $title = 'Mon blog'; ?>
+<?php 
+$title = 'Mon blog'; ?>
+
+
 
 <h2>Modifier Commentaires</h2>
 
@@ -22,6 +25,9 @@
         <input type="submit" />
     </div>
 </form>
+
+
+
 <?php var_dump($update['post_id']); ?>
         
     </body>

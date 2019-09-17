@@ -46,7 +46,12 @@ function update($id){
 
     $update = $updateManager->updateComment($id);
 
+        //header('Location:view/frontend/updateComment.php');
         require('view/frontend/updateComment.php');
+        //header("Refresh:0; url=view/frontend/updateComment.php");
+        //echo "<script type='text/javascript'> document.location = 'view/frontend/updateComment.php'; </script>";
+     
+     
 
        
 }

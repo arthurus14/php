@@ -1,17 +1,7 @@
 <div>
-        <h2>messages :</h2>
-
+       
         <?php
-        //Appel de la requête SQL
-       // require('model.php');
-        //On attribut la fonciton à la variable $req qui sera utlisée pour le view
-       // $posts = getBillets();
-
-
-        //Appel de la page contenant le script d'affichage
-        //require('affichageAccueil.php');
-
-
+    
 require('controller/frontend.php');
 
 try{
@@ -41,8 +31,13 @@ else {
 } 
 
 if($_GET['action'] == 'applyUpdate'){
-    echo "applyUpdate ".$_POST['id']."  auteur : ".$_POST['authorU']." commentaire ".$_POST['comment'];
+    //echo "applyUpdate ".$_POST['id']."  auteur : ".$_POST['authorU']." commentaire ".$_POST['comment'];
+    
+    
     updateDb($_POST['id'],$_POST['authorU'],$_POST['comment']);
+    
+   
+
 }
 
 }catch(Exception $e){
