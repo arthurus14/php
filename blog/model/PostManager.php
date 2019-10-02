@@ -1,5 +1,6 @@
 <?php
 namespace Arthurus\Blog\Post;
+//On définit un namespce qui ne prend pas en compte ne nom de la classe
 require_once("model/Manager.php");
 
 class PostManager extends \Arthurus\Blog\Manager{

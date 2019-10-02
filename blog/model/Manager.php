@@ -10,6 +10,7 @@ protected function dbConnect()
 {
     try
     {
+        // \PDO pour utiliser la fonction php avec un namespace
         $db = new \PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'root');
         return $db;
     }
