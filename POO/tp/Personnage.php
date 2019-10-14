@@ -5,7 +5,7 @@ private $_id;
 private $_nom;
 private $_degats;
 
-const CEST_MOI = "nan c est moi";
+const CEST_MOI = "Je vais pas me frapper moi même !!!";
 const PERSONNAGE_TUE = "KO";
 const PERSONNAGE_FRAPPE = "Prends ça !";
 
@@ -22,9 +22,9 @@ public function __construct(array $donnees)
         if($perso->id() == $this->_id){
             echo self::CEST_MOI;
            
-        }
+        }else{
         return $perso->recevoirDegats();
-        
+        }
     }
     public function recevoirDegats(){
         $this->_degats +=5;
@@ -54,12 +54,12 @@ public function __construct(array $donnees)
       
   public function degats()
   {
-    echo $this->_nom. " a ".$this->_degats." points de dégats";
+    echo $this->_nom. " prend ".$this->_degats." points de dégats";
   }
   
   public function id()
   {
-    $this->_id;
+   return $this->_id;
   }
   
   public function nom()

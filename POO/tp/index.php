@@ -10,7 +10,7 @@ $data = array(
 
   $data1 = array(
     'id' => 4,
-    'nom' => 'Arthurus1',
+    'nom' => 'Machin',
     'degats' => 0
   );
 
@@ -33,10 +33,11 @@ $perso1->degats();
 echo "<br/>";
 //Bug
 echo "<hr/>";
+//donne les dégâts
 $perso->frapper($perso1);
 
 echo "<br/>";
-
+//affiche le résultat
 $perso1->degats();
 
 
